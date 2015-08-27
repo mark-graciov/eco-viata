@@ -1,0 +1,59 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Eco Viata{% endblock %}
+
+{% block styles %}
+	{{super()}}
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+{% endblock %}
+
+{% block navbar %}
+<div class="header">
+  <div class="row row1">
+    <div class="col-md-2">
+      <img src="{{url_for('static', filename='logo.png')}}">
+    </div>
+    <div class="col-md-10">
+      <div class="title"> <h1> <span class="glyphicon glyphicon-grain" aria-hidden="true">EcoViață</span></h1>
+        <blockquote>
+          <p>Avem nevoie de gunoiul TĂU!</p>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Cum devin eco?</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li ><a href="#"> Evenimente <span class="sr-only">(current)</span></a></li>
+          <li ><a href="#"> Contacte<span class="sr-only">(current)</span></a></li>          
+          <li ><a href="#"> Despre noi <span class="sr-only">(current)</span></a></li>
+        </ul>
+      </div>
+      
+
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div>Page Content</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
