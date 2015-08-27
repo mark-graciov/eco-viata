@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Bine ati venit! </title>
+</head>
+<body>
+<form method='post' action ='/signup'>
+	{{form.csrf_token}}
+	{{form.nume.label}}
+	{{form.nume}}
+	<br />
+	{{form.specie.label}}
+	{{form.specie}}
+	<br />
+    {{form.varsta.label}}
+	{{form.varsta}}
+	<br />
+	{{form.parola.label}}
+	{{form.parola}}
+	<br />
+	{{form.confirma_parola.label}}
+	{{form.confirma_parola}}
+	<br />
+	{{form.submit.label}}
+	{{form.submit}}
+	</form>
+</body>
+</html>
