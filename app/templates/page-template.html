@@ -3,10 +3,11 @@
 {% block title %}Eco Viata{% endblock %}
 
 {% block styles %}
-	{{super()}}
-	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+{{super()}}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
 {% endblock %}
 
+{% block body %}
 {% block navbar %}
 <div class="header">
   <div class="row row1">
@@ -34,7 +35,6 @@
         </button>
         <a class="navbar-brand" href="#">Cum devin eco?</a>
       </div>
-
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
@@ -43,17 +43,29 @@
           <li ><a href="#"> Despre noi <span class="sr-only">(current)</span></a></li>
         </ul>
       </div>
-      
-
-
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-{% endblock %}
+{% endblock navbar %}
 
 {% block content %}
-  <div>Page Content</div>
-{% endblock %}
+<div>Page Content</div>
+{% endblock content %}
 
 {% block footer %}
-{% endblock %}
+<div class="footer bg-success" >
+  <span> ©Eco Viata 2015 </span>
+
+  <a href="#">Cum devin Eco</a>
+  <a href="#">Evenimente</a>
+  <a href="#">Contacte</a>
+  <a href="#">Despre noi</a>
+</div>
+{% endblock footer %}
+
+{% block scripts %}
+<script src="{{bootstrap_find_resource('jquery.js', cdn='jquery')}}"></script>
+<script src="{{bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap')}}"></script>
+{%- endblock scripts %}
+
+{%- endblock body %}
