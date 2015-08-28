@@ -39,3 +39,28 @@
     text-align: right;
     margin-right: 40px;
   }
+
+.wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.content .contact {
+  margin-bottom: 20px;
+}
+
+.name_contact {
+  font-size: 25px;
+  color: green;
+
+}
+
+.location_contact {
+  font-size: 20px;
+  text-decoration: underline;
+
+}
+
+.location_contact .glyphicon {
+  font-size: 16px;
+}
