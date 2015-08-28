@@ -2,7 +2,7 @@ from app import app
 
 from app.forms import SignupForm, CommentForm
 
-from app.models import Article, Comment
+from app.models import Article, Comment, Contact
 
 from datetime import datetime
 
@@ -36,3 +36,11 @@ def article(id):
 
 
 	return render_template('article.html', article = a, comments = comments, form=form)
+
+@app.route  ("/contacts")
+def contacts():
+	contacts_list = Contact.query.all()
+	print contacts_list 
+	
+
+	return render_template("contacts.html", contacts=contacts_list)

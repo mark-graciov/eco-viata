@@ -1,41 +1,74 @@
-  .header .row1 
-  {
-    background-color: /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fefefd+0,dce3c4+44,9ebc2f+100 */
-    background: #fefefd; /* Old browsers */
-    background: -moz-linear-gradient(left, #fefefd 0%, #dce3c4 44%, #9ebc2f 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#fefefd), color-stop(44%,#dce3c4), color-stop(100%,#9ebc2f)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left, #fefefd 0%,#dce3c4 44%,#9ebc2f 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left, #fefefd 0%,#dce3c4 44%,#9ebc2f 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(left, #fefefd 0%,#dce3c4 44%,#9ebc2f 100%); /* IE10+ */
-    background: linear-gradient(to right, #fefefd 0%,#dce3c4 44%,#9ebc2f 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefd', endColorstr='#9ebc2f',GradientType=1 ); /* IE6-9 */ }
+.header .row1 
+{
+  background-color: /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fefefd+0,dce3c4+44,9ebc2f+100 */
+  background: #fefefd; /* Old browsers */
+  background: -moz-linear-gradient(left, #fefefd 0%, #dce3c4 44%, #9ebc2f 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#fefefd), color-stop(44%,#dce3c4), color-stop(100%,#9ebc2f)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #fefefd 0%,#dce3c4 44%,#9ebc2f 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #fefefd 0%,#dce3c4 44%,#9ebc2f 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, #fefefd 0%,#dce3c4 44%,#9ebc2f 100%); /* IE10+ */
+  background: linear-gradient(to right, #fefefd 0%,#dce3c4 44%,#9ebc2f 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefd', endColorstr='#9ebc2f',GradientType=1 ); /* IE6-9 */ }
 
-  .comments, .new-comment{
-    width: 60%;
-    margin-top:100px;
-    margin-left: 40px;
-  }
+.comments, .new-comment{
+  width: 60%;
+  margin-top:100px;
+  margin-left: 40px;
+}
 
-  .comments .panel-body {
-    color:blue;
-  }
+.comments .panel-body {
+  color:blue;
+}
 
-  .article {
-    margin: 40px;
-  }
+.article {
+  margin: 40px;
+}
 
-  .article h2{
-    text-align: center;
-  }
-  .footer {
-    margin:20px 0 10px;
-    text-align: center; 
+.article h2{
+  text-align: center;
+}
+.footer {
+  margin:20px 0 10px;
+  text-align: center; 
 
-  }
-  .header img {
-    width: 150px;
-  }    
-  .header blockquote {
-    text-align: right;
-    margin-right: 40px;
-  }
+}
+.header img {
+  width: 150px;
+}    
+.header blockquote {
+  text-align: right;
+  margin-right: 40px;
+}
+
+.footer a, .footer span {
+  margin: 0 20px;
+}
+
+.footer span {
+  color: #767676;
+}
+
+.wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.content .contact {
+  margin-bottom: 20px;
+}
+
+.name_contact {
+  font-size: 25px;
+  color: green;
+
+}
+
+.location_contact {
+  font-size: 20px;
+  text-decoration: underline;
+
+}
+
+.location_contact .glyphicon {
+  font-size: 16px;
+}

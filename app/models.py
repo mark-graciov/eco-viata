@@ -34,11 +34,15 @@ class Comment(db.Model):
 	def save(self):
 		db.session.add(self)
 		db.session.commit()
-
-class Centre(db.Model):
-	__tablename__='centre'
+	
+class Contact(db.Model):
+	__tablename__="contacts"
 
 	id = db.Column(db.Integer, primary_key=True)
-	numeCentru = db.Column(db.String(255))
-	
-
+	name = db.Column(db.String(255))
+	location = db.Column(db.String(255))
+	district_name = db.Column(db.String(255))
+	longitude = db.Column(db.String(255))
+	latitude = db.Column(db.String(255))
+	phone_number =db.Column(db.String(255))
+	activities = db.Column(db.UnicodeText())
