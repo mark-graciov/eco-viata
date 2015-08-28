@@ -71,7 +71,7 @@ def create_article(id):
 		return redirect(url_for('article', id=a.id))
 
 	return render_template('edit-article.html', form = form, article_id = id)
-
+	
 @app.route('/articles')
 def articles():
 	# TODO
