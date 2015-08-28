@@ -3,11 +3,19 @@
 {% block content %}
 <div class="container">
 	{% for a in articles %}
-	<div class="event wrapper">
-	<h2>{{a.title}} </h2>
-
+	<div class="article-list wrapper">
+		<a href="/article/{{a.id}}"><h2>{{a.title}} </h2></a>
+		<div class="row">
+			<div class="col-md-9">
+			 {{ a.content | safe | truncate(400) }}	
+			</div>
+			<div class="col-md-3">
+				{% if a.imagine %}
+					<img src="{{a.imagine}}" width="100%">
+				{% endif %}
+			</div>
+		</div>
 	</div>
-	{% endfor%}
+	{% endfor %}
 </div>
-
 {% endblock %}
