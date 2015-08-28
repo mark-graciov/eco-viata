@@ -1,16 +1,31 @@
 {% extends 'page-template.html'%}
 
 {% block content %}
+<div class="contacts-image" img align="middle">
+    <img src="http://i.imgur.com/UD2RfbQ.jpg" >
+</div>
+
 <div class="content container">
   {% for c in contacts %}
-  <div class="contact">
+  <div class="contact wrapper clearfix">
     <div class="name_contact">{{ c.name }} </div>
-    <div class="location_contact"><span class="glyphicon glyphicon-map-marker"></span>{{ c.location }}</div>
-    <div>{{ c.district_name }}</div>
-    <div>{{ c.phone_number }}</div>
     <div>{{ c.activities|safe }}</div>
+    <div class="pull-right">
+    <div> 
+      <strong> Adresa: </strong>
+      <span class="glyphicon glyphicon-map-marker" />
+      {{ c.location }}
+    </div>
+    <div>
+      <strong>Localitatea: </strong>
+      {{ c.district_name }}
+    </div>
+    <div>
+      <strong>Telefon: </strong>
+      {{ c.phone_number }}
+    </div>
+    </div>
   </div>
   {% endfor %}
 </div>
 {% endblock %}
-             

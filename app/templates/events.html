@@ -1,0 +1,12 @@
+{% extends 'page-template.html'%}
+
+{% block content %}
+{% for e in events %}
+<div class="event wrapper">
+	<div class ="name_event"><h1>{{e.title}}</h1> </div>
+	<div> {{ e.content | safe}}</div>
+	<div class="right"> <strong> Data eveniment: </strong>{{ e.date | datetime }}</div>
+	<div class="right"> <strong> Adresa: </strong>{{ e.address }}</div>
+</div>
+{% endfor%}
+{% endblock %}

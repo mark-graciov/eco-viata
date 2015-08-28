@@ -11,6 +11,10 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefd', endColorstr='#9ebc2f',GradientType=1 ); /* IE6-9 */ 
 }
 
+.right {
+  text-align: right;
+}
+
 .comments, .new-comment{
   width: 60%;
   margin-top:100px;
@@ -53,8 +57,11 @@
 }
 
 .wrapper {
-  max-width: 980px;
-  margin: 0 auto;
+  -webkit-box-shadow: 5px 5px 20px 5px rgba(158,188,47,1);
+  -moz-box-shadow: 5px 5px 20px 5px rgba(158,188,47,1);
+  box-shadow: 5px 5px 20px 5px rgba(158,188,47,1);
+  padding: 15px;
+  margin-bottom: 25px;
 }
 
 .content .contact {
@@ -75,4 +82,30 @@
 
 .location_contact .glyphicon {
   font-size: 16px;
+}
+
+.about .item {
+  margin-top: 35px;
+}
+
+.about .item .img {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.about .item .name {
+  font-size: 25px;
+  color: SeaGreen;
+}
+
+.about .item .address {
+  font-size : 17px;
+}
+
+.about .item .info {
+  font-size: 14px;
+}
+
+.contacts-image {
+  margin-bottom: 15px;
 }
