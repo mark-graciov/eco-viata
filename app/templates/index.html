@@ -1,62 +1,64 @@
 {% extends 'page-template.html'%}
 
 {% block content %}
-
-
-</div><!-- /.navbar-collapse -->
-</div><!-- /.container-fluid -->
-</nav>
 <div class="row">
   <div class="col-lg-3 pull-right">
     <div class="input-group">
       <input type="text" class="form-control" placeholder="Căutare">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Search</button>
+        <button class="btn btn-default" type="button">Cauta</button>
       </span>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
 </div> 
 
 
-<div class="row">
+<div class="row margin-top-15">
   <div class="col-md-4">    
-    <div class="dropdown">
+    <strong> Raionul meu este: </strong>
+    <div class="dropdown inline-block">
       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Centre de reciclare
+        {% if active_district %}
+        {{active_district}}
+        {% else %}
+        <em>Alege</em>
+        {% endif %}
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><a href="#"> {{c.district_name}}</a></li>
-        
+        {% for d in districts %}
+        <li><a href="/?distr={{d}}">{{ d }}</a></li>
+        {% endfor %}
       </ul>
     </div>
+
     <div style="margin-top: 35px;">
-      HARTĂ
-      <p><img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Republica_Moldova.png" width="300" height="300"/>
-      </p></style>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Republica_Moldova.png" width="300" height="300"/>
     </div>
   </div>
-  <div class="col-md-8">
-   <div class="panel panel-success" > <h4>Ultimile postări </h4>
-   </div>
-   <div class="media">
-     <div class="media-left">
-       <a href="#">
-         <img class="media-object" src="http://www.green-report.ro/wp-content/uploads/2013/05/cop.jpg">
-       </a>
-     </div>
 
-     <div class="content">
-       <div class="article">
-         <h2> {{article.title}}</h2>
-         {{article.content|safe  | truncate(352)}}
+  <div class="col-md-8">
+   <div class="panel panel-success center"> 
+    <h4><strong>Ultimile postări</strong></h4>
+   </div>
+
+   <div class="content">
+     {% for a in articles %}
+     <div class="article wrapper">
+       <h2> {{a.title}}</h2>
+       <div class="row">
+         <div class="col-md-9">
+          {{a.content | safe | truncate(352)}}
+        </div>
+        <div class="col-md-3">
+         {% if a.imagine %}
+         <img src="{{a.imagine}}" width="100%">
+         {% endif %}
        </div>
      </div>
    </div>
+   {% endfor %} 
  </div>
 </div>
 </div>
-</div>
-
-
 {% endblock %}

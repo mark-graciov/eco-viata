@@ -4,9 +4,10 @@ from app.models import Article, Comment, Contact, Event
 
 from datetime import datetime
 
-from flask import render_template
+from flask import render_template, request
 
 from babel.dates import format_datetime
+from sqlalchemy import distinct, desc
 
 # Jinja template functions
 def fmt_datetime(value, format='short'):
@@ -22,8 +23,20 @@ app.jinja_env.filters['datetime'] = fmt_datetime
 
 @app.route('/')
 def index():
-	a = Article.query.get(1)
-	return render_template('index.html', article = a)
+	active_district = request.args.get('distr')
+
+	contacts = None
+	if active_district:
+		contacts = Contact.query.filter_by(district_name = active_district).all()
+
+	districts_list = Contact.query.with_entities(Contact.district_name).distinct()
+	districts = []
+	for d_list in districts_list:
+		districts.append(d_list[0])
+
+	articles = Article.query.order_by(desc(Article.date)).limit(3)
+
+	return render_template('index.html', active_district = active_district, districts = districts, articles = articles, contacts = contacts)
 	
 @app.route ('/signup', methods=['GET','POST'])
 def signup():
