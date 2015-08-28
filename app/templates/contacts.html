@@ -1,7 +1,7 @@
 {% extends 'page-template.html'%}
 
 {% block content %}
-<div class="content wrapper">
+<div class="content container">
   {% for c in contacts %}
   <div class="contact">
     <div class="name_contact">{{ c.name }} </div>
@@ -12,12 +12,5 @@
   </div>
   {% endfor %}
 </div>
-
-<div class="footer bg-success" >
-  EcoViata 2015
-</div>
-
-
-
 {% endblock %}
              
