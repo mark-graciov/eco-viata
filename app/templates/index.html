@@ -35,30 +35,60 @@
     <div style="margin-top: 35px;">
       <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Republica_Moldova.png" width="300" height="300"/>
     </div>
+
+    {% if active_district %}
+    <div class="panel panel-success center margin-top-15"> 
+    <h4><strong>Puncte de reciclare in {{ active_district }}</strong></h4>
+    </div>
+
+    <div class="list-group">
+      {% for c in contacts %}
+      <li href="#" class="list-group-item">
+        <h4 class="list-group-item-heading">{{c.name}}</h4>
+        <p class="list-group-item-text"><strong>Adresa: </strong>{{c.location}}</p>
+        <p class="list-group-item-text"><strong>Telefon: </strong>{{c.phone_number}}</p>
+      </li>
+      {% endfor %}
+    </div>
+    {% endif %}
   </div>
 
+
   <div class="col-md-8">
+   
+   {% if event %}
+   <div class="panel panel-success center"> 
+    <h4><strong>Urmatorul eveniment</strong></h4>
+   </div>
+
+   <div class="event wrapper">
+    <a href="/events"><h1>{{event.title}}</h1></a>
+    <div> {{ event.content | safe}}</div>
+    <div class="right"> <strong> Data eveniment: </strong>{{ event.date | datetime }}</div>
+    <div class="right"> <strong> Adresa: </strong>{{ event.address }}</div>
+   </div>
+   {% endif %}
+
+
    <div class="panel panel-success center"> 
     <h4><strong>Ultimile postări</strong></h4>
    </div>
 
-   <div class="content">
-     {% for a in articles %}
-     <div class="article wrapper">
-       <h2> {{a.title}}</h2>
-       <div class="row">
-         <div class="col-md-9">
-          {{a.content | safe | truncate(352)}}
-        </div>
-        <div class="col-md-3">
-         {% if a.imagine %}
-         <img src="{{a.imagine}}" width="100%">
-         {% endif %}
-       </div>
+   {% for a in articles %}
+   <div class="article wrapper">
+     <a href="/article/{{a.id}}"><h2> {{a.title}}</h2></a>
+     <div class="row">
+       <div class="col-md-9">
+        {{a.content | safe | truncate(300)}}
+      </div>
+      <div class="col-md-3">
+       {% if a.imagine %}
+       <img src="{{a.imagine}}" width="100%">
+       {% endif %}
      </div>
    </div>
+   </div>
    {% endfor %} 
- </div>
 </div>
 </div>
 {% endblock %}

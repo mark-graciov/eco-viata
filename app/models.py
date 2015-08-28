@@ -1,18 +1,19 @@
 from app import db
 
 from datetime import datetime
+from sqlalchemy import update
 
 class Article(db.Model):
 	__tablename__='article'
 
-	id 	= db.Column(db.Integer, primary_key=True)
+	id	= db.Column(db.Integer, primary_key=True)
 	title =db.Column(db.String(255))
 	content = db.Column(db.UnicodeText()) 
 	date = db.Column(db.DateTime(), default = datetime.now)
 	imagine = db.Column(db.String(255))
 
-	def save(self):
-		db.session.add(self)
+	def method_save(self):
+		db.session.merge(self)
 		db.session.commit()
 
 
