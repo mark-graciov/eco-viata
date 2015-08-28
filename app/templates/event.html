@@ -1,0 +1,12 @@
+{% extends 'bootstrap/base.html'%}
+
+{% block content %}
+<div class="event wrapper">
+
+  {% for e in event %}
+  <div class="event">
+  <div class ="name_event">{{e.title}} </div>
+  <div> {{ e.content }}</div>
+  <div> {{ e.date }}</div>
+  <div> {{ e.address }}</div>
+{% endblock %}

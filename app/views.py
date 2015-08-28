@@ -2,7 +2,7 @@ from app import app
 
 from app.forms import SignupForm, CommentForm
 
-from app.models import Article, Comment
+from app.models import Article, Comment, Event
 
 from datetime import datetime
 

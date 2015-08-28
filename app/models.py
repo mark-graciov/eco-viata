@@ -29,6 +29,16 @@ class Comment(db.Model):
 	article = db.relationship('Article')
 	date = db.Column(db.DateTime(), default = datetime.now)
 
+class Event(db.Model):
+	__tablename__="event"
+	
+	id = db.Column(db.Integer, primary_key=True)
+	title = db.Column(db.String(255))
+	content = db.Column(db.UnicodeText()) 
+	date = db.Column(db.DateTime(), default = datetime.now)
+	address = db.Column(db.String(255))
+	longitude = db.Column(db.String(255))
+	latitude = db.Column(db.String(255))
 
 	def save(self):
 		db.session.add(self)
