@@ -1,0 +1,24 @@
+{% extends 'page-template.html'%}
+
+{% block content %}
+<div class="container">
+<form method='post' action ='/create_article'>
+	<div class = 'form-group'>
+		{{form.title.label}}
+		{{form.title(class_="form-control")}}
+	</div>
+	<!-- <br /> -->
+	<div class = 'form-group'>
+		{{form.content.label}}
+		{{form.content(class_="form-control", rows="20")}}
+	</div>
+	<!-- <br /> -->
+	<div class="form-group">
+
+		{{form.submit.label}}
+		{{form.submit(class_="btn btn-success btn-lg")}}
+	</div>
+</form>
+</div>
+
+{% endblock %}

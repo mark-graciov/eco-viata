@@ -11,6 +11,11 @@ class Article(db.Model):
 	date = db.Column(db.DateTime(), default = datetime.now)
 	imagine = db.Column(db.String(255))
 
+	def save(self):
+		db.session.add(self)
+		db.session.commit()
+
+
 class User(db.Model):
 	__tablename__='user'
 

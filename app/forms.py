@@ -14,3 +14,8 @@ class CommentForm(Form):
 	message = TextAreaField('Mesaj', [Required()])
 	submit = SubmitField('Adauga un comentariu')
 
+class CreateArticleForm(Form):
+	title = TextField('Titlu')
+	content = TextAreaField('Continutul')
+	submit = SubmitField('Salveaza')
+	<img class = "src">
