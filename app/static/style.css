@@ -81,3 +81,25 @@
 .location_contact .glyphicon {
   font-size: 16px;
 }
+
+.about .item {
+  margin-top: 35px;
+}
+
+.about .item .img {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.about .item .name {
+  font-size: 25px;
+  color: SeaGreen;
+}
+
+.about .item .address {
+  font-size : 17px;
+}
+
+.about .item .info {
+  font-size: 14px;
+}

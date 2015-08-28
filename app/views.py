@@ -74,5 +74,9 @@ def create_article(id):
 
 @app.route('/articles')
 def articles():
-	
+	# TODO
 	return render_template('article-list.html')
+
+@app.route ("/about")
+def about():
+	return render_template("about.html")
