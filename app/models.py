@@ -9,6 +9,12 @@ class Article(db.Model):
 	title =db.Column(db.String(255))
 	content = db.Column(db.UnicodeText()) 
 	date = db.Column(db.DateTime(), default = datetime.now)
+	imagine = db.Column(db.String(255))
+
+	def save(self):
+		db.session.add(self)
+		db.session.commit()
+
 
 class User(db.Model):
 	__tablename__='user'
@@ -43,8 +49,7 @@ class Event(db.Model):
 	def save(self):
 		db.session.add(self)
 		db.session.commit()
-
-
+	
 class Contact(db.Model):
 	__tablename__="contacts"
 

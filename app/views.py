@@ -1,10 +1,10 @@
 from app import app
-from app.forms import SignupForm, CommentForm
-from app.models import Article, Comment, Contact, Event
+from app.forms import SignupForm, CommentForm, CreateArticleForm
+from app.models import Article, Comment, Contact
 
 from datetime import datetime
 
-from flask import render_template
+from flask import render_template, redirect, url_for
 
 from babel.dates import format_datetime
 
@@ -22,8 +22,8 @@ app.jinja_env.filters['datetime'] = fmt_datetime
 
 @app.route('/')
 def index():
-	animals_list = ['Enot','Elefant','Enot2', 'Zebra']
-	return render_template('index.html', animals=animals_list, best_animal='Mark')
+	a = Article.query.get(1)
+	return render_template('index.html', article = a)
 	
 @app.route ('/signup', methods=['GET','POST'])
 def signup():
@@ -36,10 +36,10 @@ def signup():
 @app.route('/article/<id>', methods=['GET', 'POST'])
 def article(id):
 	a = Article.query.get(id)
-
 	form = CommentForm()
+
 	if form.validate_on_submit():
-		c = Comment(user_id = 1, message = form.message.data,article = a )
+		c = Comment(user_id = 1, message = form.message.data,article = a)
 		c.save()
 
 	comments = Comment.query.filter_by(article_id = id)
@@ -48,9 +48,20 @@ def article(id):
 @app.route("/contacts")
 def contacts():
 	contacts_list = Contact.query.all()
-	return render_template("contacts.html", contacts=contacts_list)
+	return render_template("contacts.html", contacts = contacts_list)
 
 @app.route("/events")
 def events():
 	event_list = Event.query.all()
-	return render_template("events.html", events =event_list)
+	return render_template("events.html", events = event_list)
+
+@app.route ('/create-article', methods=['GET', 'POST'])
+def create_article():
+	form = CreateArticleForm()
+	
+	if form.validate_on_submit():
+		a = Article(title = form.title.data, content = form.content.data, imagine = form.image.data)
+		a.save()
+		return redirect(url_for('article', id=a.id))
+
+	return render_template('create-article.html', form = form)

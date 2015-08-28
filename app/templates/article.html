@@ -1,7 +1,6 @@
 {% extends 'page-template.html'%}
 
 {% block content %}
-
 <div class="row">
   <div class="col-lg-6 pull-right search">
     <div class="input-group">
@@ -14,9 +13,12 @@
 </div> 
 
 <div class="content">
-  <div class="article">
+  <div class="article"> 
     <h2> {{article.title}}</h2>
-    {{article.content|safe}}
+    {% if article.imagine %}
+    <div class="pull-right"><img src="{{article.imagine}}"></div>
+    {% endif %}
+    {{article.content | safe}}
   </div>
 </div>
 
@@ -35,7 +37,8 @@
 <div class="new-comment">
   <i> Adauga comentariu </i>
   <form method = 'post' action = '/article/{{article.id}}'> 
-   {{form.csrf_token}} <div class="row form-group {% if form.message.errors%} has-error {% endif %}"> 
+   {{form.csrf_token}}
+   <div class="row form-group {% if form.message.errors%} has-error {% endif %}"> 
    <div class="col-md-9">
      {{form.message(class='form-control', row='3', placeholder=form.message.label.text)}}
    </div>
