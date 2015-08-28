@@ -6,7 +6,7 @@ from app.models import Article, Comment, Contact
 
 from datetime import datetime
 
-from flask import render_template
+from flask import render_template, redirect, url_for
 
 @app.route('/')
 def index():
@@ -45,8 +45,10 @@ def contacts():
 @app.route ('/create-article', methods=['GET', 'POST'])
 def create_article():
 	form = CreateArticleForm()
+	
 	if form.validate_on_submit():
-		a = Article(title = form.title.data, content = form.content.data)
+		a = Article(title = form.title.data, content = form.content.data, imagine = form.image.data)
 		a.save()
+		return redirect(url_for('article', id=a.id))
 
 	return render_template('create-article.html', form = form)
