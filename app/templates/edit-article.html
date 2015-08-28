@@ -1,7 +1,7 @@
 {% extends 'page-template.html'%}
 
 {% block content %}
-<form method='post' action ='/create-article'>
+<form method='post' action ='/edit-article{{'/' + article_id if article_id}}'>
 	{{form.csrf_token}}
 	<div class = 'form-group'>
 		{{form.title.label}}

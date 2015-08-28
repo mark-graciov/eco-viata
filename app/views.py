@@ -1,6 +1,6 @@
 from app import app
 from app.forms import SignupForm, CommentForm, CreateArticleForm
-from app.models import Article, Comment, Contact
+from app.models import Article, Comment, Contact, Event
 
 from datetime import datetime
 
@@ -55,13 +55,24 @@ def events():
 	event_list = Event.query.all()
 	return render_template("events.html", events = event_list)
 
-@app.route ('/create-article', methods=['GET', 'POST'])
-def create_article():
+@app.route('/edit-article/<id>', defaults={'id' : None}, methods=['GET', 'POST'])
+def create_article(id):
 	form = CreateArticleForm()
-	
+
+	if id != None:
+		a = Article.query.get(id)
+		form.title.data = a.title
+		form.content.data = a.content
+		form.image.data = a.imagine
+
 	if form.validate_on_submit():
-		a = Article(title = form.title.data, content = form.content.data, imagine = form.image.data)
+		a = Article(id = id, title = form.title.data, content = form.content.data, imagine = form.image.data)
 		a.save()
 		return redirect(url_for('article', id=a.id))
 
-	return render_template('create-article.html', form = form)
+	return render_template('edit-article.html', form = form, article_id = id)
+
+@app.route('/articles')
+def articles():
+	
+	return render_template('article-list.html')
