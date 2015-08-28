@@ -9,6 +9,7 @@ class Article(db.Model):
 	title =db.Column(db.String(255))
 	content = db.Column(db.UnicodeText()) 
 	date = db.Column(db.DateTime(), default = datetime.now)
+	imagine = db.Column(db.String(255))
 
 class User(db.Model):
 	__tablename__='user'
@@ -33,4 +34,11 @@ class Comment(db.Model):
 	def save(self):
 		db.session.add(self)
 		db.session.commit()
+
+class Centre(db.Model):
+	__tablename__='centre'
+
+	id = db.Column(db.Integer, primary_key=True)
+	numeCentru = db.Column(db.String(255))
+	
 

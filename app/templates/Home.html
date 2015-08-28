@@ -31,12 +31,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefd', end
   .article h2{
     text-align: center;
   }
-
-  .article img {
-    width: 150px;
-    text-align: left; 
-  }
-
   .footer {
     margin:20px 0 10px;
     text-align: center; 
@@ -49,7 +43,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefd', end
     text-align: right;
     margin-right: 40px;
   }
-  
 
 </style>
 <div class="header">
@@ -58,7 +51,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefd', end
       <img src="{{url_for('static', filename='logo.png')}}">
     </div>
     <div class="col-md-10">
-      <div class="title"> <h1> <span class="glyphicon glyphicon-leaf" aria-hidden="true">EcoViață</span></h1>
+      <div class="title"> <h1> <span class="glyphicon glyphicon-grain" aria-hidden="true">EcoViață</span></h1>
       <blockquote>
         <p>Avem nevoie de gunoiul TĂU!</p>
       </blockquote>
@@ -104,50 +97,52 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefd', end
   </div><!-- /.col-lg-6 -->
 </div> 
 
-<div class="content">
-  <div class="article"> 
-    <img class="src">
-      {{article.imagine}}
-    </img>
-    <h2> {{article.title}}</h2>
-    {{article.content|safe}}
-  </div>
-</div>
 
-<div class="comments">
-  <h4><i>Comentarii</i></h4>
-  {% for c in comments %}
-  <div class="panel panel-default">
-    <div class="panel-heading"> {{c.user.nume}}
-    </div>
-    <div class="panel-body"> {{c.message}}
-    </div>
-  </div>
-  {% endfor %}
-</div>
-
-<div class="new-comment">
-  <i> Adauga comentariu </i>
-  <form method = 'post' action = '/article/{{article.id}}'> 
-   {{form.csrf_token}} <div class="row form-group {% if form.message.errors%} has-error {% endif %}"> 
-   <div class="col-md-9">
-     {{form.message(class='form-control', row='3', placeholder=form.message.label.text)}}
-   </div>
-   <div class="col-md-3">
-    <span class="help-block"> {{ ' ' .join(form.message.errors)}}
-    </span>
-  </div>
-</div>
 <div class="row">
-  <div class="col-md-9">
-    {{form.submit(class='btn btn-info pull-right')}}
+  <div class="col-ms-3">
+    <div class='form-inline'>
+        <form action="#">
+        <div class="form-group">
+               <select name="nutrition">
+                   <option value="1">Anenii Noi</option>
+                   <option value="2">Basarabeasca</option>
+                   <option value="3">Bălți</option>
+                   <option value="4">Bender</option>
+                   <option value="5">Briceni</option>
+                   <option value="6">Cahul</option>                   <option value="2">Bălți</option>
+                   <option value="7">Chișinău</option>                   <option value="2">Bălți</option>              ;<option value="8">Comrat</option>
+                   <option value="9">Edineț</option>
+                   <option value="10">Florești</option>
+                   <option value="11">Glodeni</option>
+                   <option value="12">Leova</option>
+                   <option value="13">Rezina</option>
+                   <option value="14">Rîșcani</option>
+                   <option value="15">Soroca</option>
+                   <option value="16">Strășeni</option>
+                   <option value="17">Teleneșto</option>
+                   <option value="18">Ungheni</option>
+
+
+
+
+
+
+               </select>
+           </div>
+            <div class='form-group'>
+                <input type="text" id="animal-name" class="form-control" placeholder='Animal name'>
+            </div>
+            <div class='checkbox'>
+                <label >
+                    <input type="checkbox"> Save this search for later
+                </label>
+            </div>
+            <div class='form-group'>
+                <button type="submit" class='btn btn-info' disabled>    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    Search</button>
+            </div>
+        </form>
+    </div>
+
   </div>
 </div>
-</form>
-</div>
-
-<div class="footer bg-success" >
-  EcoViata 2015
-</div>
-
-{% endblock %}

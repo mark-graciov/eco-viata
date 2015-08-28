@@ -10,8 +10,8 @@ from flask import render_template
 
 @app.route('/')
 def index():
-	animals_list = ['Enot','Elefant','Enot2', 'Zebra']
-	return render_template('index.html', animals=animals_list, best_animal='Mark')
+	a = Article.query.get(1)
+	return render_template('index.html', article = a)
 	
 @app.route ('/signup', methods=['GET','POST'])
 def signup():
