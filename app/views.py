@@ -1,5 +1,5 @@
 from app import app
-from app.forms import SignupForm, CommentForm, CreateArticleForm
+from app.forms import SignupForm, CommentForm, CreateArticleForm, EventForm
 from app.models import Article, Comment, Contact, Event
 
 from datetime import datetime
@@ -93,6 +93,25 @@ def edit_article(id):
 def events():
 	event_list = Event.query.order_by(desc(Event.date)).all()
 	return render_template("events.html", events = event_list)
+
+@app.route('/create-event', defaults={'id' : None}, methods=['GET', 'POST'])
+@app.route('/edit-event/<id>', methods=['GET', 'POST'])
+def edit_event(id):
+	form = EventForm()
+
+	if form.validate_on_submit():
+		a = Event(id=id, title=form.title.data, address=form.address.data, date=form.date.data, content=form.content.data)
+		a.save()
+		return redirect(url_for('events'))
+
+	if id != None:
+		a = Event.query.get(id)
+		form.title.data = a.title
+		form.address.data = a.address
+		form.date.data = a.date
+		form.content.data = a.content
+
+	return render_template('edit-event.html', form = form, event_id = id)
 
 @app.route("/contacts")
 def contacts():

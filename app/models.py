@@ -48,7 +48,7 @@ class Event(db.Model):
 	latitude = db.Column(db.String(255))
 
 	def save(self):
-		db.session.add(self)
+		db.session.merge(self)
 		db.session.commit()
 	
 class Contact(db.Model):

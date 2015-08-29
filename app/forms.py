@@ -1,5 +1,5 @@
 from flask.ext.wtf import Form
-from wtforms import TextField, IntegerField, PasswordField, SubmitField, TextAreaField
+from wtforms import TextField, IntegerField, PasswordField, SubmitField, TextAreaField, DateField
 from wtforms.validators import Required
 
 class SignupForm(Form):
@@ -17,5 +17,12 @@ class CommentForm(Form):
 class CreateArticleForm(Form):
 	title = TextField('Titlu', [Required()])
 	image = TextField('Imagine')
+	content = TextAreaField('Continutul', [Required()])
+	submit = SubmitField('Salveaza')
+
+class EventForm(Form):
+	title = TextField('Titlu', [Required()])
+	address = TextField('Adresa', [Required()])
+	date = DateField('Data Inceput', format='%d.%m.%Y')
 	content = TextAreaField('Continutul', [Required()])
 	submit = SubmitField('Salveaza')
