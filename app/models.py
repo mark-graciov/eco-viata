@@ -12,8 +12,11 @@ class Article(db.Model):
 	date = db.Column(db.DateTime(), default = datetime.now)
 	imagine = db.Column(db.String(255))
 
-	def method_save(self):
-		db.session.merge(self)
+	def save(self):
+		if (self.id is not None):
+			db.session.merge(self)
+		else:
+			db.session.add(self)
 		db.session.commit()
 
 
@@ -48,7 +51,10 @@ class Event(db.Model):
 	latitude = db.Column(db.String(255))
 
 	def save(self):
-		db.session.merge(self)
+		if (self.id is not None):
+			db.session.merge(self)
+		else:
+			db.session.add(self)
 		db.session.commit()
 	
 class Contact(db.Model):

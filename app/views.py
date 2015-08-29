@@ -78,7 +78,8 @@ def edit_article(id):
 	if form.validate_on_submit():
 		print form.title.data
 		a = Article(id=id, title=form.title.data, content=form.content.data, imagine=form.image.data)
-		a.method_save()
+		a.save()
+		print a.id
 		return redirect(url_for('article', id=a.id))
 
 	if id != None:
