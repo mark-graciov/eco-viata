@@ -2,4 +2,4 @@ venv/
 *.pyc
 app.db
 migrations/
-__init__.py
+run.py
